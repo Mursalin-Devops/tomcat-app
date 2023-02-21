@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER mursalin031994@gmail.com
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install openjdk-8-jdk wget
+RUN apt-get -y update 
+RUN apt-get -y install wget
 RUN mkdir /usr/local/tomcat
 RUN wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz -O /tmp/tomcat.tar.gz
 RUN cd /tmp && tar xvfz tomcat.tar.gz
