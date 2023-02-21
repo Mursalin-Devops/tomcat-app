@@ -1,17 +1,10 @@
-FROM ubuntu
-
+FROM ubuntu:latest
 MAINTAINER mursalin031994@gmail.com
-
-RUN mkdir /opt/tomcat/
-
-WORKDIR /opt/tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
-RUN tar xvfz apache*.tar.gz
-RUN mv apache-tomcat-8.5.85/* /opt/tomcat/.
-
-WORKDIR /opt/tomcat/webapps
-RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
-
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get -y install openjdk-8-jdk wget
+RUN mkdir /usr/local/tomcat
+RUN wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz -O /tmp/tomcat.tar.gz
+RUN cd /tmp && tar xvfz tomcat.tar.gz
+RUN cp -Rv /tmp/apache-tomcat-8.5.50/* /usr/local/tomcat/
 EXPOSE 8080
-
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD /usr/local/tomcat/bin/catalina.sh run
