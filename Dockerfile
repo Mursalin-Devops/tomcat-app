@@ -1,6 +1,6 @@
 FROM ubuntu
 
-MAINTAINER mursalin031994@gmail.com
+MAINTAINER mursalinmd1994@gmail.com
 
 RUN mkdir /opt/tomcat/
 
