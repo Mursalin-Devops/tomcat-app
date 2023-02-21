@@ -5,7 +5,7 @@ MAINTAINER mursalin031994@gmail.com
 RUN mkdir /opt/tomcat/
 
 WORKDIR /opt/tomcat
-RUN wget --quiet --no-cookies https://archive.apache.org/dist/tomcat/tomcat-8/v${8.5.50}/bin/apache-tomcat-${8.5.50}.tar.gz 
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz -O
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-8.5.85/* /opt/tomcat/.
 
