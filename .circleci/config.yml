@@ -15,6 +15,9 @@ jobs:
     steps:
       - checkout
       - run: https://github.com/Mursalin-Devops/tomcat-app.git
+    steps:
+      - build
+      - run: sudo -S docker build -t tomcat-app:latest   
           # echo Hello, World!
 
 workflows:
