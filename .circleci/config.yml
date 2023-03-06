@@ -15,13 +15,13 @@ jobs:
 
       - run:
           name: Tag docker image
-          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:v1.${CIRCLE_BUILD_NUM}
-                   ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:latest   
+          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:v1.${CIRCLE_BUILD_NUM};
+                   ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:latest;   
       - run:
            name: push docker images to ansible server
            command:   ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker login --username mursalindocker111 --password $DOCKERHUB_PASSWORD;
-                      ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114  sudo docker  push mursalindocker111/nginx:v1.${CIRCLE_BUILD_NUM}
-                      ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114  sudo docker push mursalindocker111/nginx:latest
+                      ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114  sudo docker  push mursalindocker111/nginx:v1.${CIRCLE_BUILD_NUM};
+                      ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114  sudo docker push mursalindocker111/nginx:latest;
       - run:
           name: create nginx containner  
           command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker run -p 8000:8000 --name nginx-app1 -d mursalindocker111/nginx:v1.${CIRCLE_BUILD_NUM}
