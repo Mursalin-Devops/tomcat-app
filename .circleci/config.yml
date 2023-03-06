@@ -15,7 +15,7 @@ jobs:
 
       - run:
           name: sending image to ansible server
-          command: rsync -ravz --delete /home/circleci/project/* ubuntu@15.207.89.114:.    
+          command: rsync -ravz --delete docker.io/library/* ubuntu@15.207.89.114:.    
 
 
 
