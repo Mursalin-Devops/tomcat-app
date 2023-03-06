@@ -11,11 +11,11 @@ jobs:
 
       - run: 
           name: pull nginx image from dockerhub
-          command: docker pull nginx
+          command: docker pull nginx:latest
 
       - run:
            name: push docker images to ansible server
-           command:  sudo rsync -ravz --delete docker.io/library/nginx:latest ubuntu@184.169.212.155:;
+           command:  sudo rsync -ravz --delete docker.io/library/nginx:latest ubuntu@184.169.212.155:.
 
 
       # - run:
