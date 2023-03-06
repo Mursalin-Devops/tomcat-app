@@ -11,7 +11,7 @@ jobs:
             - "1c:4a:4f:dd:26:3b:36:fd:6c:32:5a:59:6e:6e:8f:47"
       - run:
           name: Sending Dockerfile To Ansible Server
-          command: "rsync -ravz --delete /home/circleci/project/* mursalin@172.31.13.103"
+          command: 'rsync -ravz --delete /home/circleci/project/* ubuntu@172.31.13.103:'
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
