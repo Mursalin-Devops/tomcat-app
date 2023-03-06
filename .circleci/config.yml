@@ -14,7 +14,7 @@ jobs:
           command: rsync -ravz --delete /home/circleci/project/* ubuntu@15.207.89.114:.
       - run:
            name: install curl
-           command: apt install curl   
+           command: sudo apt install curl   
       - run:
           name: build docker images
           command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker build -t tomcatapp:$CIRCLE_BUILD_NUM .
