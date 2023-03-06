@@ -17,7 +17,7 @@ jobs:
            command: sudo apt install curl   
       - run:
           name: build docker images
-          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker build -t tomcatapp:$CIRCLE_BUILD_NUM .
+          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker build -t tomcat-app:$CIRCLE_BUILD_NUM .
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
