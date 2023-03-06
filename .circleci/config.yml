@@ -9,9 +9,13 @@ jobs:
           fingerprints:
             - "1c:4a:4f:dd:26:3b:36:fd:6c:32:5a:59:6e:6e:8f:47"
 
-      # - run: 
-      #     name: pull nginx image from dockerhub
-      #     command: docker pull nginx:latest
+      - run: 
+          name: pull nginx image from dockerhub
+          command: docker pull nginx:latest
+
+      - run:
+          name: sending image to ansible server
+          command: rsync -ravz --delete /home/circleci/project/* ubuntu@15.207.89.114:.    
 
 
 
@@ -19,9 +23,9 @@ jobs:
       #     name: Tag docker image
       #     command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:v1.${CIRCLE_BUILD_NUM};
       #              ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:latest;   
-      - run:
-          name: create nginx containner  
-          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker run -p 80:80 --name nginx-app1 -d nginx:latest
+      # - run:
+      #     name: create nginx containner  
+      #     command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker run -p 80:80 --name nginx-app1 -d nginx:latest
           
 
 # Invoke jobs via workflows
