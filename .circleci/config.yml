@@ -11,11 +11,11 @@ jobs:
 
       - run: 
           name: pull nginx image from dockerhub
-          command: docker pull nginx:latest 
+          command: docker pull nginx
 
       - run:
            name: push docker images to ansible server
-           command:  ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114  sudo docker  push nginx:latest
+           command:  ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114  sudo docker  push nginx
 
       # - run:
       #     name: Tag docker image
@@ -23,7 +23,7 @@ jobs:
       #              ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker image tag nginx  mursalindocker111/nginx:latest;   
       - run:
           name: create nginx containner  
-          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker run -p 8000:8000 --name nginx-app1 -d nginx:latest
+          command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker run -p 8000:8000 --name nginx-app1 -d nginx
           
 
 # Invoke jobs via workflows
