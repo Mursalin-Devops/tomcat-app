@@ -11,7 +11,7 @@ jobs:
             - "1c:4a:4f:dd:26:3b:36:fd:6c:32:5a:59:6e:6e:8f:47"
       - run:
           name: Sending Dockerfile To Ansible Server
-          command: rsync -ravz --delete /home/circleci/project/* mursalin@172.31.13.103:/home/mursalin
+          command: pwd ; ls ;
       - run:
           name: build docker images
           command: ssh -o StrictHostKeyChecking=no mursalin@172.31.13.103 docker build -t new-app:${CIRCLE_BUILD_NUM} .
