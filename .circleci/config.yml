@@ -11,10 +11,7 @@ jobs:
             - "1c:4a:4f:dd:26:3b:36:fd:6c:32:5a:59:6e:6e:8f:47"
       - run:
           name: Sending Dockerfile To Ansible Server
-          command: rsync -ravz --delete /home/circleci/project/* ubuntu@15.207.89.114:.
-      - run:
-           name: install curl
-           command: sudo apt install curl   
+          command: rsync -ravz --delete /home/circleci/project/* ubuntu@15.207.89.114:.  
       - run:
           name: build docker images
           command: ssh -o StrictHostKeyChecking=no ubuntu@15.207.89.114 sudo docker build -t tomcat-app:$CIRCLE_BUILD_NUM .
